@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生表</title>
+</head>
+<body style="text-align:center">
+<!--文本居中-->
+<table width="100%" border="1">
+
+    <tr>
+<!--        th是表头用的-->
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="stu:${student}">
+<!--        ↑=循环for,,,,stu是起个别名随便的 一个对象（一条）-->
+<!--        td是一列一列-->
+        <td th:text="${stu.sid}"></td>
+        <td th:text="${stu.sname}"></td>
+        <td th:text="${stu.ssex}"></td>
+        <td th:text="${stu.sage}"></td>
+        <td>
+            <a th:href="@{'/student/find/'+${stu.sid}}">修改记录</a>
+
+
+        </td>
+    </tr>
+
+
+
+</table>
+
+<a href="/student/addview">新增</a>
+<!--由于之前controller有前缀，所以也要添上/student-->
+
+</body>
+</html>
